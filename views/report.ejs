@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.163.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.163.0/examples/jsm/"
+        }
+      }
+    </script>
+    <style>
+        /* Importing a minimal futuristic font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #00fff0; /* Subtle neon accent */
+        }
+
+        h1 {
+            font-size: 1.8em; /* Reduced font size */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.4em; /* Reduced font size */
+            margin-bottom: 15px;
+        }
+
+        .result, .feedback-section, .insights-section {
+            background-color: rgba(0, 0, 0, 0.8); /* Black background for contrast */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .result p, .feedback-section p, .insights-section p {
+            font-size: 1em; /* Smaller text for clarity */
+            margin-bottom: 10px;
+            color: #e0e0e0; /* Soft white text */
+        }
+
+        .feedback-section .feedback {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly brighter for feedback */
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .feedback p {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: 1px solid #00fff0; /* Neon accent for dividers */
+            margin: 10px 0;
+        }
+
+        /* Neon-colored border for emphasis */
+        .insights-section {
+            border: 2px solid #00fff0; /* Neon accent for insights */
+        }
+
+        /* Button styling */
+        .proceed-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #00fff0;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .proceed-btn:hover {
+            background-color: #00bfa0; /* Darker neon on hover */
+        }
+
+        /* Making sure the layout adjusts well on mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .proceed-btn {
+                font-size: 1em;
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quiz Results</h1>
+
+    <div class="result">
+        <p><strong>Total Questions:</strong> <%= total %></p>
+        <p><strong>Correct Answers:</strong> <%= correct %></p>
+        <p><strong>Incorrect Answers:</strong> <%= incorrect %></p>
+    </div>
+
+    <div class="feedback-section">
+        <h2>Feedback on Incorrect Answers</h2>
+        <% if (feedback.length > 0) { %>
+            <% feedback.forEach(function(fb) { %>
+                <div class="feedback">
+                    <p><strong>Question:</strong> <%= fb.question %></p>
+                    <p><strong>Your Answer:</strong> <%= fb.userAnswer %></p>
+                    <p><strong>Correct Answer:</strong> <%= fb.correctAnswer %></p>
+                    <p><strong>Explanation:</strong> <%= fb.explanation %></p>
+                </div>
+                <hr>
+            <% }); %>
+        <% } else { %>
+            <p>You got all answers correct! Well done!</p>
+        <% } %>
+    </div>
+
+    <% if (insights) { %>
+        <div class="insights-section">
+            <h2>AI-Generated Insights</h2>
+            <p><%= insights %></p>
+        </div>
+    <% } %>
+</div>
+<style>
+      #card {
+            width: 400px; /* Card width */
+            height: 300px; /* Card height */
+            background-color: transparent; /* Make card background transparent */
+
+            overflow: hidden; /* Hide overflow to maintain card shape */
+            position: absolute; /* Position absolute to place the canvas */
+            bottom: 20px; /* Start below the screen */
+            z-index: 10; /* Ensure card is above other elements */
+            
+        }
+
+        #canvas {
+            width: 100%; /* Make canvas fill the card */
+            height: 100%; /* Make canvas fill the card */
+            position: absolute; /* Absolute positioning to fill the card */
+            right: 0;
+            bottom: 0;
+            z-index: 5; /* Ensure canvas is below card */
+        }
+</style>
+<div id="card">
+
+    <canvas id="canvas"></canvas> <!-- Canvas for 3D rendering -->
+
+</div>
+<a href="/exploreImage" class="proceed-btn">Explore Images</a>
+<script type="module" src="js/report.js">
+  
+
+</script>
+    <!-- Proceed button -->
+    
+
+</body>
+</html>

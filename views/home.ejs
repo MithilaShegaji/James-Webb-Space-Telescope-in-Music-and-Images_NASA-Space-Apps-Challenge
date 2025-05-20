@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Universe Unfolds</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scrollerpage.html">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <!-- <nav class="navbar">
+        <div class="container">
+            <h1 class="brand">Cosmos Evolution</h1>
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/jwst_telescope">JWT</a></li>
+                <li><a href="/evolutionVideo">Evolution Video</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/faq">FAQS</a></li>
+                <li><a href="/exploreImage">Explore Images</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav> -->
+    <header>
+        <%- include('partials/navbar') %>
+    </header>
+    <!-- Hero Section with Background Video and Title -->
+    <section id="home" class="hero" style="height: 100vh;">
+        <video autoplay muted loop id="background-video">
+            <!-- Replace with your video file -->
+            <source src="src/video/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">The Universe Unfolds</h2>
+                <p class="hero-description">Explore the journey from the Big Bang to the formation of galaxies.</p>
+                <a href="/evolutionVideo" class="btn">Watch the Evolution</a> <!-- Button to Scroller page -->
+            </div>
+        </div>
+    </section>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+<header>
+    <%- include('partials/navbar') %>
+</header>
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+        <details>
+            <summary>Do galaxies have their own sounds?</summary>
+            <p>Galaxies themselves don't produce "sound" in the way we typically experience it, as sound requires a medium (like air or water) to travel through, and space is mostly a vacuum. However, certain phenomena within galaxies—such as vibrations, shock waves, or electromagnetic emissions—can be converted into sound using specialized scientific techniques.</p>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>Can the James Webb Space Telescope "hear" sound from space?</summary>
+            <p>No, the JWST does not "hear" sound because sound cannot travel through the vacuum of space. Instead, the telescope captures light in the infrared spectrum. However, scientists can convert light data and other observations into sound through a process called sonification...</p>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>What role does music play in understanding the universe?</summary>
+            <p>Music and sonification can help make complex astronomical data more accessible to a broader audience. It can also provide a new way of exploring patterns in data, which can sometimes lead to unexpected discoveries or enhance our appreciation of the universe’s beauty.</p>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>How is the data from galaxies turned into music?</summary>
+            <p>Data sonification translates scientific information, such as light frequency or spectral lines, into sound. For example, variations in brightness can determine pitch, or the distance between objects can set the timing of notes. This process results in a unique soundscape for each observation, creating an auditory representation of the data.</p>
+        </details>
+    </div>
+</div>
+<footer>
+    <%- include('partials/footer') %>
+</footer>
+</body>
+</html>

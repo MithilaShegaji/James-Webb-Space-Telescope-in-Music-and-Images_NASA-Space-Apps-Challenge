@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a4b;
+        }
+
+        .card-header {
+            background-color: #007bff !important;
+        }
+
+        .card-header h3,
+        .card-header p {
+            margin: 0;
+        }
+
+        .form-control {
+            border-radius: 0;
+            box-shadow: none;
+            border-color: #ced4da;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .bg-primary {
+            background-color: #007bff !important;
+        }
+
+        .card {
+            border: 1px solid #007bff;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .text-center p {
+            margin: 0;
+        }
+    </style>
+</head>
+<!-- <nav><embed src="navbar.html" width="100%" height="300px" style="border: none;"></nav> -->
+<body>
+    <section class="container mt-5">
+        <h2 style="color: white;">Contact Us</h2>
+        <p style="color: white;">
+            Have a question for the <span style="color: yellow;">Space Odyssey</span> team that isn't addressed in our Frequently Asked Questions? Reach out to us at <u style="color: yellow;">spaceodyssey@gmail.com</u>
+        </p>
+
+        <div class="row">
+            <!-- Form Column -->
+            <div class="col-sm-12 mb-4 col-md-5">
+                <!-- Form with header -->
+                <div class="card border-primary rounded-0">
+                    <div class="card-header p-0">
+                        <div class="bg-primary text-white text-center py-2">
+                            <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+                            <p class="m-0">We’ll write rarely, but only the best content.</p>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <!-- Form start -->
+                        <form>
+                            <div class="form-group">
+                                <label>Your name</label>
+                                <div class="input-group">
+                                    <input value="" type="text" name="data[name]" class="form-control" placeholder="Your name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Your email</label>
+                                <div class="input-group mb-2 mb-sm-0">
+                                    <input type="email" value="" name="data[email]" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <div class="input-group mb-2 mb-sm-0">
+                                    <input type="text" name="data[subject]" class="form-control" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <div class="input-group mb-2 mb-sm-0">
+                                    <textarea class="form-control" name="mesg" rows="4" placeholder="Your message"></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" name="submit" value="submit" class="btn btn-primary btn-block rounded-0 py-2">
+                            </div>
+                        </form>
+                        <!-- Form end -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Column -->
+            <div class="col-sm-12 col-md-7">
+                <!-- Google map -->
+                <div class="mb-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.1859458087494!2d77.5668178!3d13.1341876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae18a5c54ece35%3A0x49c4c47a68a60b9c!2sBMS%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1696497001151!5m2!1sen!2sin"
+                        width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                </div>
+
+                <!-- Buttons -->
+                <div class="row text-center" style="color: white;">
+                    <div class="col-md-4">
+                        <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
+                                class="fa fa-map-marker"></i></a>
+                        <p> Yelahanka, Bengaluru, Karnataka 560064</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
+                                class="fa fa-phone"></i></a>
+                        <p>+91-963169993</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
+                                class="fa fa-envelope"></i></a>
+                        <p> spaceodyssey@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<!-- <footer><embed src="footer.html" width="100%" height="300px" style="border: none;"></footer> -->
+</html>

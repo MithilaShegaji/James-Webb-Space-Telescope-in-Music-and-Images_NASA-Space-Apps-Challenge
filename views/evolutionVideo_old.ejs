@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cosmic Evolution Video</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="brand">Cosmos Evolution</h1>
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li> <!-- Link back to Home -->
+                <li><a href="about.html">About</a></li>
+                <li><a href="#faqs">FAQS</a></li>
+                <li><a href="#exploreImages">Explore Images</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Scroll-triggered Big Bang Video Section -->
+    <section id="video-section" class="scroll-video-section" style="min-height: 100vh;">
+        <div class="video-container">
+            <video id="scroll-video" autoplay>
+                <source src="src/video/big_bang.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Background audio for the Big Bang video -->
+            <audio id="background-audio" autoplay>
+                <source src="src/audio/TrimmedAudio.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+            <!-- Skip Button -->
+        <button id="skip-button" class="hidden" onclick="window.location.href='/exploreImage';">Skip</button>
+        </div>    
+    </section>
+
+    <!-- JavaScript to play the audio when the video starts -->
+    <script>
+        const video = document.getElementById('scroll-video');
+        const audio = document.getElementById('background-audio');
+    
+        // Play the audio once the user interacts with the page
+        document.body.addEventListener('click', () => {
+            audio.play();
+        });
+    
+        video.addEventListener('ended', () => {
+            audio.currentTime = 0; // Reset audio to the beginning
+            audio.play(); // Ensure audio plays again
+        });
+    </script>
+    <script>
+        // Show the Skip button after 5 seconds
+        setTimeout(() => {
+            const skipButton = document.getElementById('skip-button');
+            skipButton.classList.remove('hidden'); // Remove the hidden class to show the button
+        }, 5000); // 5000 milliseconds = 5 seconds
+    
+        // Automatically redirect after the video ends
+        const video1 = document.getElementById('scroll-video');
+        video1.addEventListener('ended', () => {
+            // Redirect to the desired URL after the video ends
+            window.location.href = '/exploreImage'; // Change this URL to your target page
+        });
+    </script>
+    
+    
+</body>
+
+</html>

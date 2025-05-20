@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Millennium Falcon</title>
+    <link rel="stylesheet" href="css/evolution.css">
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.163.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.163.0/examples/jsm/"
+        }
+      }
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the start (top) */
+            height: 100vh;
+            margin: 0;
+            background-color: black; /* Optional background color */
+            position: relative; /* Position relative to control stacking */
+            overflow: hidden; /* Prevent overflow when the card animates */
+        }
+
+        #card {
+            width: 400px; /* Card width */
+            height: 300px; /* Card height */
+            background-color: transparent; /* Make card background transparent */
+
+            overflow: hidden; /* Hide overflow to maintain card shape */
+            position: absolute; /* Position absolute to place the canvas */
+            bottom: -300px; /* Start below the screen */
+            z-index: 10; /* Ensure card is above other elements */
+            transition: bottom 3s ease-in-out; /* Smooth transition for sliding effect */
+        }
+
+        #canvas {
+            width: 100%; /* Make canvas fill the card */
+            height: 100%; /* Make canvas fill the card */
+            position: absolute; /* Absolute positioning to fill the card */
+            top: 0;
+            left: 0;
+            z-index: 5; /* Ensure canvas is below card */
+        }
+        .quiz-container { 
+  position: absolute;
+  top: -500px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+  z-index: 10;
+  transition: top 2s ease-in-out; /* Smooth transition */
+}
+
+.quiz-container ul {
+  list-style-type: none; /* Removes the dots */
+  padding: 0; /* Removes default padding */
+}
+
+.quiz-container li {
+  margin-bottom: 10px; /* Adds some spacing between items */
+}
+.quiz-container h1 {
+  font: size 2.3em;
+}
+
+
+.quiz-container button {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 12px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 40px #0ff, 0 0 80px #0ff;
+}
+
+.quiz-container button:hover {
+  box-shadow: 0 0 10px white, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff, 0 0 100px #0ff;
+  background-color: #111; /* Slightly darker on hover */
+}
+
+
+
+      
+    </style>
+</head>
+<body>
+    <div id="quiz-container" class="quiz-container">
+        <h1 style="font-size: 3rem;">Quiz Time!</h1>
+        
+        <form id="quiz-form" action="/submit-answers" method="POST">
+            <div id="question-area">
+                <p id="question-text"></p> 
+                <ul id="options-list"></ul>
+            </div>
+
+            <input type="hidden" name="answers" id="answers-input" >
+            <button type="submit" id="submit-quiz" hidden>Submit Quiz</button>
+        </form>
+    </div>
+    <script>
+       const questions = <%- JSON.stringify(questions) %>; // Pass questions from the backend
+       console.log(questions[1])
+        let currentQuestionIndex = 0; // Track current question
+        const answers = []; // Array to store answers
+
+        // Function to display a question
+        function displayQuestion() {
+            const questionText = document.getElementById('question-text');
+            const optionsList = document.getElementById('options-list');
+
+            if (currentQuestionIndex < questions.length) {
+                questionText.innerText = questions[currentQuestionIndex].question;
+                optionsList.innerHTML = ''; // Clear previous options
+                
+                // Populate options
+                questions[currentQuestionIndex].options.forEach(option => {
+                    const li = document.createElement('li');
+                    const button = document.createElement('button');
+                    button.type = "button"; // Prevent form submission on click
+                    button.classList.add('answer-btn');
+                    button.innerText = option;
+                    button.onclick = () => handleAnswer(option); // Set up click handler
+                    li.appendChild(button);
+                    optionsList.appendChild(li);
+                });
+            } else {
+                // All questions answered
+                submitQuiz();
+            }
+        }
+
+        // Handle answer selection
+        function handleAnswer(selectedAnswer) {
+            answers[currentQuestionIndex] = selectedAnswer; // Save the answer
+            currentQuestionIndex++; // Move to the next question
+            displayQuestion(); // Display the next question
+        }
+
+        // Submit quiz answers
+        function submitQuiz() {
+    // const answersInput = document.getElementById('answers-input');
+    // answersInput.value = answers.join(','); // Store answers as a comma-separated string
+    // console.log('Answers being submitted:', answersInput.value); // Check the value before submission
+    // const submitButton = document.getElementById('submit-quiz');
+    // submitButton.removeAttribute('hidden'); // Show submit button
+
+
+    const quizForm = document.getElementById('quiz-form');
+    
+  
+    const existingAnswers = document.querySelectorAll('input[name="answers[]"]');
+    existingAnswers.forEach(input => input.remove());
+    
+ 
+    answers.forEach(answer => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'answers[]'; 
+        input.value = answer; 
+        quizForm.appendChild(input); 
+    });
+    quizForm.submit()
+
+        }
+
+        // Start the quiz
+        displayQuestion(); // 
+    </script>
+    <div id="chatbot">
+    <div id="chat-output"></div>
+    <input id="chat-input" type="text" placeholder="Type your message..." />
+    <button id="send-btn">Send</button>
+</div>
+    <div id="card">
+
+        <canvas id="canvas"></canvas> <!-- Canvas for 3D rendering -->
+
+    </div>
+    <script type="module" src="js/evolution.js"></script>
+</body>
+</html>
