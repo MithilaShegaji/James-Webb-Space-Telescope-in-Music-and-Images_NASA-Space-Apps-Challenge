@@ -1,0 +1,114 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #131383;  
+    color: #fff; /* Text color */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px; /* Maximum width */
+    /* padding: 0 20px;  */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items */
+    /* background-color: #020809;  */
+    padding: 15px 20px;
+    position: relative; /* Position relative for dropdown */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    display: flex; /* Horizontal list */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.navbar li {
+    margin-left: 20px; /* Space between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline */
+    color: #ddd; /* Link color */
+    font-weight: 500; /* Font weight */
+    padding: 10px 15px; /* Link padding */
+    position: relative; /* Position for pseudo-element */
+    transition: color 0.3s ease; /* Transition effect */
+}
+
+.navbar a::after {
+    content: ''; /* Empty content for underline */
+    position: absolute;
+    left: 50%; /* Center horizontally */
+    bottom: -5px; /* Position underline */
+    width: 0%; /* Initial width */
+    height: 2px; /* Underline thickness */
+    background-color: #ffa500; /* Underline color */
+    transition: width 0.3s ease, left 0.3s ease; /* Animation for underline */
+}
+
+.navbar a:hover {
+    color: #ffa500; /* Change text color on hover */
+}
+
+.navbar a:hover::after {
+    width: 100%; /* Expand underline on hover */
+    left: 0; /* Align to the left */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to the left */
+        background-color: #020809; /* Dropdown background */
+        position: absolute; 
+        top: 60px; 
+        left: 0; 
+        width: 100%; 
+        display: none; /* Hide by default */
+        z-index: 1; 
+        padding-top: 10px; 
+        border-top: 2px solid #ffa500; /* Border for dropdown */
+    }
+    
+    .navbar.active ul {
+        display: flex; /* Show dropdown when active */
+    }
+    
+    .navbar li {
+        margin-left: 0; /* Remove margin in dropdown */
+        width: 100%; 
+        text-align: left; 
+        padding-left: 15px; 
+        padding-right: 15px; 
+    }
+    
+    .navbar-toggle {
+        display: block; /* Show toggle button */
+        cursor: pointer;
+        color: #fff; /* Toggle button color */
+        font-size: .8em; /* Toggle button font size */
+    }
+    
+    .navbar-toggle:hover {
+        color: #ffa500; /* Change toggle color on hover */
+    }
+    
+    .navbar-toggle.active {
+        color: #ffa500; /* Active toggle color */
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-toggle {
+        display: none; /* Hide toggle button on larger screens */
+    }
+}

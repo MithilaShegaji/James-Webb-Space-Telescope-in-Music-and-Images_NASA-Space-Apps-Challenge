@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f1f;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+h3 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+p,
+li {
+    color: #ddd;
+    font-size: 1.1em;
+    margin-bottom: 1.2em;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #14142f;
+    padding: 1rem 0;
+}
+
+.navbar .brand {
+    color: #ffa500;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    margin-left: 2rem;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.navbar .nav-links li a:hover {
+    color: #ffa500;
+}
+
+.navbar .menu-toggle {
+    display: none;
+    font-size: 1.8em;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Hide the nav-links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        background: #1a1a2e;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+/* Section Styles */
+.about-section,
+.big-bang-section,
+.discoveries-section,
+.contact-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #131383, #020809);
+}
+
+.highlight {
+    color: #ffa500;
+    font-weight: bold;
+}
+
+.big-bang-image img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.discoveries-list {
+    list-style-type: none;
+}
+
+.discoveries-list li {
+    margin-bottom: 2rem;
+}
+
+.discoveries-list h4 {
+    color: #ffa500;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    background-color: #14142f;
+}
+
+.contact-section .btn {
+    background-color: #ffa500;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.contact-section .btn:hover {
+    background-color: #ff8c00;
+}

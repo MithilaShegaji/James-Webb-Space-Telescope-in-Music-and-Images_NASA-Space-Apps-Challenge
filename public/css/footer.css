@@ -1,0 +1,85 @@
+/* Footer Container */
+.footer {
+    background-color: black;
+    color: #f2f2f2; /* Light text color */
+    padding: 30px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Footer main container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+/* Footer sections */
+.footer-section {
+    flex: 1;
+    margin: 20px;
+}
+
+/* About section */
+.footer-section.about p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Links styling */
+.footer-section.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin: 10px 0;
+}
+
+.footer-section.links ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section.links ul li a:hover {
+    color: #1da1f2; /* Light blue on hover */
+}
+
+/* Contact section styling */
+.footer-section.contact p {
+    margin: 10px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    color: #f2f2f2;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #1da1f2; /* Light blue on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1a1a1a; /* Slightly darker than main footer */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
